@@ -11,15 +11,15 @@ enum Enum_EstadoUsuario {
 }
 
 enum Enum_FaseProyecto {
-    iniciado = 'Iniciado',
-    desarrollo = 'Desarrollo',
-    terminado = 'Terminado',
-    nula = ''
+    INICIADO = 'INICIADO',
+    DESARROLLO = 'DESARROLLO',
+    TERMINADO = 'TERMINADO',
+    NULO = ''
 }
 
 enum Enum_EstadoProyecto {
-    activo = 'Activo',
-    inactivo = 'Inactivo'
+    ACTIVO = 'ACTIVO',
+    INACTIVO = 'INACTIVO'
 }
 
 enum Enum_TipoObjetivo {

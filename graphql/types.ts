@@ -2,6 +2,8 @@ import { gql } from "apollo-server-express";
 
 const typeDefs = gql`
 
+    scalar Date
+
     enum Enum_EstadoUsuario{
         PENDIENTE
         AUTORIZADO
@@ -11,6 +13,16 @@ const typeDefs = gql`
         ESTUDIANTE
         LIDER
         ADMINISTRADOR
+    }
+    enum Enum_EstadoProyecto{
+        ACTIVO
+        INACTIVO
+    }
+    enum Enum_FaseProyecto{
+        INICIADO
+        DESARROLLO
+        TERMINADO
+        NULO
     }
 
 
@@ -24,10 +36,21 @@ type Usuario {
     rol: Enum_Rol!
 }
 
+type Proyecto{
+    _id: ID!
+    nombre: String!
+    presupuesto: Float!
+    fechaInicio: Date!
+    fechaFin: Date!
+    estado: Enum_EstadoProyecto!
+    fase: Enum_FaseProyecto!
+    lider: Usuario!
+}
 
 type Query {
     Usuarios: [Usuario]
     Usuario(_id:String!): Usuario
+    Proyectos: [Proyecto]
 }
 
 type Mutation{
@@ -55,6 +78,16 @@ type Mutation{
             email: String
         ): Usuario
 
+
+            crearProyecto(
+                nombre: String!
+                presupuesto: Float!
+                fechaInicio: Date!
+                fechaFin: Date!
+                estado: Enum_EstadoProyecto!
+                fase: Enum_FaseProyecto!
+                lider: String!
+            ):Proyecto
 
     }
 `;
