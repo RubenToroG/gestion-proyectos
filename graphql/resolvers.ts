@@ -1,5 +1,5 @@
-import { UserModel } from "../models/user";
-import { ProjectModel } from "../models/project";
+import { UserModel } from "../models/usuario/usuario";
+import { ProjectModel } from "../models/proyecto/proyecto";
 
 const resolvers = {
     Query: {
@@ -66,7 +66,7 @@ const resolvers = {
                 presupuesto: args.presupuesto,
                 lider: args.lider
             })
-            return proyectoCreado;
+            return proyectoCreado.populate('lider');
         }
     },
 };
