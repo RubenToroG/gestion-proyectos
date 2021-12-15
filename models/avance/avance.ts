@@ -4,7 +4,7 @@ import { UserModel } from '../usuario/usuario';
 
 interface Avance {
     fecha: Date;
-    description: string;
+    descripcion: string;
     observaciones: [string];
     proyecto: Schema.Types.ObjectId;
     creadoPor: Schema.Types.ObjectId;
@@ -15,7 +15,7 @@ const advancementSchema = new Schema<Avance>({
         type: Date,
         required: true,
     },
-    description: {
+    descripcion: {
         type: String,
         required: true,
     },
@@ -32,7 +32,7 @@ const advancementSchema = new Schema<Avance>({
     creadoPor: {
         type: Schema.Types.ObjectId,
         ref: UserModel,
-        required: true,
+        required: true
     }
 })
 
