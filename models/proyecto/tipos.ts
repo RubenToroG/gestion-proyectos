@@ -2,8 +2,6 @@ import { gql } from "apollo-server-express";
 
 const tiposProyecto = gql`
 
-    scalar Date
-
 type Proyecto{
 _id: ID!
 nombre: String!
@@ -33,6 +31,6 @@ crearProyecto(
 }
 `;
 
-export { tiposProyecto };
+export { tiposProyecto }; 
 
 
