@@ -21,6 +21,11 @@ const tiposEnums = gql`
         TERMINADO
         NULO
     }
+    enum Enum_EstadoInscripcion{
+        ACEPTADA
+        RECHAZADA
+        PENDIENTE
+    }
 `;
 
 export { tiposEnums };

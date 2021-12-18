@@ -19,11 +19,11 @@ const inscriptionSchema = new Schema<Inscription>({
     },
     fechaIngreso: {
         type: Date,
-        required: true
+        required: false
     },
     fechaEgreso: {
         type: Date,
-        required: true
+        required: false
     },
     proyecto: {
         type: Schema.Types.ObjectId,
@@ -37,6 +37,6 @@ const inscriptionSchema = new Schema<Inscription>({
     }
 })
 
-const InscriptionModel = model('Incripcion', inscriptionSchema);
+const InscriptionModel = model('Inscription', inscriptionSchema);
 
 export { InscriptionModel };
