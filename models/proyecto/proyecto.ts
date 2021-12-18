@@ -44,7 +44,26 @@ const projectSchema = new Schema< Proyecto >({
         require: true,
         ref: UserModel      //referencia fuerte
     }
+},
+{   //configuraciones adicionales virtual populate https://mongoosejs.com/docs/populate.html
+    toJSON: { virtuals: true }, // So `res.json()` and other `JSON.stringify()` functions include virtuals
+    toObject: { virtuals: true } // So `console.log()` and other functions that use `toObject()` include virtuals
+  })
+
+// Virtual Populate - Esquema virtual Avances
+projectSchema.virtual('avances', {
+    ref: 'Avance',
+    localField: '_id',
+    foreignField: 'proyecto',
 })
+
+// Virtual Populate - Esquema virtual Incripciones
+projectSchema.virtual('inscripciones', {
+    ref: 'Inscription',
+    localField: '_id',
+    foreignField: 'proyecto',
+})
+
 
 const ProjectModel = model('Proyecto', projectSchema); //tercer parametro es nombre en colección BD
 

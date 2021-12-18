@@ -11,6 +11,8 @@ fechaFin: Date!
 estado: Enum_EstadoProyecto!
 fase: Enum_FaseProyecto!
 lider: Usuario!
+avances: [Avance]
+inscripciones: [Inscripcion]
 }
 
 type Query {
